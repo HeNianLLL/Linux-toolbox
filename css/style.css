@@ -127,6 +127,10 @@ body::after {
     text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
+.logo-title-mobile {
+    display: none;
+}
+
 .logo-text p {
     font-size: 0.875rem;
     color: var(--gray);
@@ -159,6 +163,11 @@ body::after {
     cursor: pointer;
     transition: var(--transition);
     font-weight: 600;
+    min-width: 48px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .lang-switch button:hover {
@@ -206,7 +215,7 @@ body::after {
     }
 }
 
-.hero-text h2 {
+.hero-text h1 {
     font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.2;
@@ -225,6 +234,10 @@ body::after {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.hero-buttons-mobile {
+    display: none;
 }
 
 .btn-primary {
@@ -388,6 +401,7 @@ body::after {
     line-height: 1.5;
     position: relative;
     overflow: hidden;
+    text-align: left;
 }
 
 .terminal-body::after {
@@ -598,6 +612,11 @@ body::after {
     font-size: 2rem;
     margin-bottom: 1rem;
     filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+}
+
+.system-item.centos .system-logo {
+    filter: drop-shadow(0 0 10px rgba(147, 51, 234, 0.6));
+    color: #9333ea;
 }
 
 .system-name {
@@ -985,8 +1004,8 @@ body::after {
         gap: 2rem;
     }
     
-    .hero-text h2 {
-        font-size: 2.25rem;
+    .hero-text h1 {
+        font-size: 1.5rem;
     }
     
     .stats-grid {
@@ -1028,11 +1047,19 @@ body::after {
     }
     
     .logo-icon {
-        font-size: 1.25rem;
+        display: none;
     }
     
     .logo-text h1 {
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .logo-title-desktop {
+        display: none;
+    }
+    
+    .logo-title-mobile {
+        display: block;
     }
     
     .logo-text p {
@@ -1066,13 +1093,33 @@ body::after {
         scroll-margin-top: 60px;
     }
     
+    /* Hide badge on mobile */
+    .badge {
+        display: none;
+    }
+    
+    /* Hide nav links on mobile */
+    .nav {
+        display: none;
+    }
+    
+    /* Hide hero text on mobile */
+    .hero-text {
+        display: none;
+    }
+    
+    /* Show only terminal on mobile */
+    .hero-terminal {
+        order: 1;
+    }
+    
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2rem;
+        gap: 2.5rem;
     }
     
-    .hero-text h2 {
+    .hero-text h1 {
         font-size: 1.875rem;
         line-height: 1.3;
     }
@@ -1082,17 +1129,26 @@ body::after {
     }
     
     .hero-buttons {
+        display: none;
+    }
+    
+    .hero-buttons-mobile {
+        display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
+        order: 2;
+        margin-top: 1.5rem;
     }
     
-    .btn-primary,
-    .btn-secondary {
+    .hero-buttons-mobile .btn-primary,
+    .hero-buttons-mobile .btn-secondary {
         width: 100%;
-        max-width: 280px;
+        max-width: 320px;
         text-align: center;
-        padding: 0.875rem 1.5rem;
+        padding: 1rem 2rem;
+        font-size: 1rem;
     }
     
     .hero-terminal {
@@ -1105,7 +1161,220 @@ body::after {
     }
     
     .stats {
-        padding: 2rem 0;
+        padding: 3rem 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .stat-item {
+        padding: 1.5rem 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.875rem;
+    }
+    
+    .features {
+        padding: 4rem 0;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .feature-card {
+        padding: 1.75rem;
+    }
+    
+    .systems {
+        padding: 4rem 0;
+    }
+    
+    .systems-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+    
+    .system-card {
+        padding: 1.25rem;
+    }
+    
+    .system-icon {
+        font-size: 2rem;
+    }
+    
+    .system-name {
+        font-size: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .section-header p {
+        font-size: 1rem;
+    }
+    
+    .download {
+        padding: 4rem 0;
+    }
+    
+    .download-options {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .download-card {
+        padding: 2rem;
+    }
+    
+    .download-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+    
+    .code-block {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .download-note {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .changelog {
+        padding: 4rem 0;
+    }
+    
+    .changelog-content {
+        margin: 0 -0.5rem;
+    }
+    
+    .changelog-header {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1.25rem;
+    }
+    
+    .changelog-content h3 {
+        padding: 1rem;
+        font-size: 1.25rem;
+    }
+    
+    .feature-list {
+        padding: 0 1rem 1rem;
+    }
+    
+    .about {
+        padding: 4rem 0;
+    }
+    
+    .about-content {
+        padding: 0 0.5rem;
+    }
+    
+    .about-description {
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+    }
+    
+    .domain-info,
+    .contact-info {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1.25rem;
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    .footer {
+        padding: 3rem 0 1.5rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+    
+    .footer-brand {
+        max-width: 100%;
+    }
+    
+    .footer-brand p {
+        font-size: 0.95rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .footer-column h4 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-column ul li {
+        margin-bottom: 0.75rem;
+    }
+    
+    .footer-bottom {
+        padding-top: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .logo-icon {
+        font-size: 1.5rem;
+    }
+    
+    .logo-text h1 {
+        font-size: 1.1rem;
+    }
+    
+    .nav-links {
+        gap: 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .nav-links a {
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-text p {
+        font-size: 0.95rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        max-width: 280px;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
     }
     
     .stats-grid {
@@ -1125,15 +1394,6 @@ body::after {
         font-size: 0.8rem;
     }
     
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-    }
-    
-    .feature-card {
-        padding: 1.5rem;
-    }
-    
     .systems-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
@@ -1144,143 +1404,19 @@ body::after {
     }
     
     .system-icon {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
     
     .system-name {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
     .section-header h2 {
-        font-size: 1.625rem;
-    }
-    
-    .section-header p {
-        font-size: 0.95rem;
-    }
-    
-    .download-options {
-        grid-template-columns: 1fr;
+        font-size: 1.5rem;
     }
     
     .download-card {
         padding: 1.5rem;
-    }
-    
-    .changelog-content {
-        margin: 0 -0.5rem;
-    }
-    
-    .changelog-header {
-        flex-direction: column;
-        gap: 0.75rem;
-        padding: 1rem;
-    }
-    
-    .changelog-content h3 {
-        padding: 1rem;
-        font-size: 1.25rem;
-    }
-    
-    .feature-list {
-        padding: 0 1rem 1rem;
-    }
-    
-    .about-content {
-        padding: 0 0.5rem;
-    }
-    
-    .domain-info,
-    .contact-info {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-    }
-    
-    .footer-brand {
-        max-width: 100%;
-    }
-    
-    .footer-links {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-    
-    .footer-bottom {
-        padding-top: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 0.75rem;
-    }
-    
-    .logo-icon {
-        font-size: 1.75rem;
-    }
-    
-    .logo-text h1 {
-        font-size: 1.25rem;
-    }
-    
-    .nav-links {
-        gap: 0.75rem;
-        font-size: 0.8rem;
-    }
-    
-    .nav-links a {
-        padding: 0.25rem 0.5rem;
-    }
-    
-    .hero-text h2 {
-        font-size: 1.625rem;
-    }
-    
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-    }
-    
-    .stat-item {
-        padding: 1rem 0.5rem;
-    }
-    
-    .stat-number {
-        font-size: 1.5rem;
-    }
-    
-    .stat-label {
-        font-size: 0.75rem;
-    }
-    
-    .systems-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
-    }
-    
-    .system-card {
-        padding: 1rem;
-    }
-    
-    .system-icon {
-        font-size: 1.75rem;
-    }
-    
-    .system-name {
-        font-size: 0.875rem;
-    }
-    
-    .section-header h2 {
-        font-size: 1.375rem;
     }
     
     .about-links {
@@ -1296,6 +1432,11 @@ body::after {
     
     .feature-list li {
         font-size: 0.9rem;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 

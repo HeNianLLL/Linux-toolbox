@@ -2385,9 +2385,9 @@ main() {
                 ;;
             0)
                 clear
-                echo -e "${GREEN}感谢使用 $SCRIPT_NAME！${NC} -- https://linuxset.com/"
-                echo "广告位赞助招商中..."
-                echo "广告位赞助招商中..."
+                echo -e "${GREEN}感谢使用 $SCRIPT_NAME！ -- https://linuxset.com/${NC}"
+                echo -e "${GREEN}广告位赞助招商中...${NC}"
+                echo -e "${GREEN}广告位赞助招商中...${NC}"
                 echo ""
                 exit 0
                 ;;

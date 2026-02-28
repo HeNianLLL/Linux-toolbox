@@ -7,7 +7,7 @@ function initLanguage() {
     
     langBtn.addEventListener('click', () => {
         currentLang = currentLang === 'zh' ? 'en' : 'zh';
-        langBtn.textContent = currentLang === 'zh' ? 'EN' : '中文';
+        langBtn.textContent = currentLang === 'zh' ? 'EN' : 'CN';
         updateContent(currentLang);
     });
 
@@ -19,8 +19,9 @@ function initLanguage() {
                 'nav.download': '下载',
                 'nav.changelog': '版本',
                 'nav.about': '关于',
-                'hero.title': '一键式Linux服务器管理解决方案',
+                'hero.title': '一键式Linux系统管理解决方案',
                 'hero.desc': '轻松管理软件源、安装开发环境、优化系统性能，让Linux服务器管理变得简单高效。',
+                'hero.badge': 'v1.0.0 正式发布',
                 'hero.btn1': '立即使用',
                 'hero.btn2': 'GitHub',
                 'stats.downloads': '使用次数',
@@ -76,6 +77,7 @@ function initLanguage() {
                 'nav.about': 'About',
                 'hero.title': 'One-stop Linux Server Management Solution',
                 'hero.desc': 'Easily manage software sources, install development environments, optimize system performance, and make Linux server management simple and efficient.',
+                'hero.badge': 'v1.0.0 Released',
                 'hero.btn1': 'Get Started',
                 'hero.btn2': 'GitHub',
                 'stats.downloads': 'Usage Count',
@@ -135,13 +137,18 @@ function initLanguage() {
         });
 
         // Update hero section
-        const heroTitle = document.querySelector('.hero-text h2');
+        const heroBadge = document.querySelector('.hero-text .badge');
+        const heroTitle = document.querySelector('.hero-text h1');
         const heroDesc = document.querySelector('.hero-text p');
         const heroBtns = document.querySelectorAll('.hero-buttons a');
+        const heroMobileBtns = document.querySelectorAll('.hero-buttons-mobile a');
+        if (heroBadge) heroBadge.textContent = translations[lang]['hero.badge'];
         if (heroTitle) heroTitle.textContent = translations[lang]['hero.title'];
         if (heroDesc) heroDesc.textContent = translations[lang]['hero.desc'];
         if (heroBtns[0]) heroBtns[0].textContent = translations[lang]['hero.btn1'];
         if (heroBtns[1]) heroBtns[1].textContent = translations[lang]['hero.btn2'];
+        if (heroMobileBtns[0]) heroMobileBtns[0].textContent = translations[lang]['hero.btn1'];
+        if (heroMobileBtns[1]) heroMobileBtns[1].textContent = translations[lang]['hero.btn2'];
 
         // Update stats section
         const statLabels = document.querySelectorAll('.stat-label');
@@ -189,18 +196,18 @@ function initLanguage() {
         const codeBlocks = document.querySelectorAll('.code-block code');
         if (codeBlocks[0]) {
             codeBlocks[0].textContent = lang === 'zh' ? 
-                'bash <(curl -sSL https://linuxset.com/linux-setbox-cn-1.0.0.sh)' : 
-                'bash <(curl -sSL https://linuxset.com/linux-setbox-en-1.0.0.sh)';
+                'bash <(curl -sSL https://linuxset.com/linux-setbox-cn.sh)' : 
+                'bash <(curl -sSL https://linuxset.com/linux-setbox-en.sh)';
         }
         if (codeBlocks[1]) {
             codeBlocks[1].textContent = lang === 'zh' ? 
-                'wget https://linuxset.com/linux-setbox-cn-1.0.0.sh' : 
-                'wget https://linuxset.com/linux-setbox-en-1.0.0.sh';
+                'wget https://linuxset.com/linux-setbox-cn.sh' : 
+                'wget https://linuxset.com/linux-setbox-en.sh';
         }
         if (codeBlocks[2]) {
             codeBlocks[2].textContent = lang === 'zh' ? 
-                'chmod +x linux-setbox-cn-1.0.0.sh && ./linux-setbox-cn-1.0.0.sh' : 
-                'chmod +x linux-setbox-en-1.0.0.sh && ./linux-setbox-en-1.0.0.sh';
+                'chmod +x linux-setbox-cn.sh && ./linux-setbox-cn.sh' : 
+                'chmod +x linux-setbox-en.sh && ./linux-setbox-en.sh';
         }
 
         // Update terminal content

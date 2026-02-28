@@ -151,7 +151,8 @@
                 <div class="logo">
                     <div class="logo-icon">🐧</div>
                     <div class="logo-text">
-                        <h1>SetBox</h1>
+                        <h1 class="logo-title-desktop">SetBox</h1>
+                        <h1 class="logo-title-mobile">Linux-SetBox工具箱</h1>
                         <p>专业的Linux系统工具箱</p>
                     </div>
                 </div>
@@ -176,13 +177,17 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <div class="badge">v1.0.0 正式发布</div>
+                    <div class="badge" data-i18n="hero.badge">v1.0.0 正式发布</div>
                     <h1 id="hero-title">一键式Linux系统管理解决方案</h1>
                     <p>轻松管理软件源、安装开发环境、优化系统性能，让Linux服务器管理变得简单高效。</p>
                     <div class="hero-buttons">
                         <a href="#download" class="btn-primary" aria-label="立即使用SetBox">立即使用</a>
                         <a href="https://github.com/HeNianLLL/Linux-Setbox" target="_blank" rel="noopener noreferrer" class="btn-secondary" aria-label="查看GitHub仓库">GitHub</a>
                     </div>
+                </div>
+                <div class="hero-buttons-mobile">
+                    <a href="#download" class="btn-primary" aria-label="立即使用SetBox">立即使用</a>
+                    <a href="https://github.com/HeNianLLL/Linux-Setbox" target="_blank" rel="noopener noreferrer" class="btn-secondary" aria-label="查看GitHub仓库">GitHub</a>
                 </div>
                 <div class="hero-terminal">
                     <div class="terminal">
@@ -196,7 +201,7 @@
                         </div>
                         <div class="terminal-body" id="terminalBody">
                             <div class="terminal-content" data-lang="zh">
-                                <div class="terminal-line">$ bash &lt;(curl -sSL https://linuxset.com/linux-setbox-cn-1.0.0.sh)</div>
+                                <div class="terminal-line">$ bash &lt;(curl -sSL https://linuxset.com/linux-setbox-cn.sh)</div>
                                 <div class="terminal-line">========================================</div>
                                 <div class="terminal-line">      SetBox v1.0.0</div>
                                 <div class="terminal-line">========================================</div>
@@ -213,7 +218,7 @@
                                 <div class="terminal-line"> 0) 退出</div>
                             </div>
                             <div class="terminal-content hidden" data-lang="en">
-                                <div class="terminal-line">$ bash &lt;(curl -sSL https://linuxset.com/linux-setbox-en-1.0.0.sh)</div>
+                                <div class="terminal-line">$ bash &lt;(curl -sSL https://linuxset.com/linux-setbox-en.sh)</div>
                                 <div class="terminal-line">========================================</div>
                                 <div class="terminal-line">      SetBox v1.0.0</div>
                                 <div class="terminal-line">========================================</div>
@@ -310,8 +315,8 @@
                 <p>支持多种Linux发行版</p>
             </div>
             <div class="systems-grid">
-                <article class="system-item">
-                    <div class="system-logo" aria-hidden="true">🔴</div>
+                <article class="system-item centos">
+                    <div class="system-logo" aria-hidden="true">🟣</div>
                     <div class="system-name">CentOS</div>
                 </article>
                 <article class="system-item">
@@ -357,7 +362,7 @@
                 <article class="download-card">
                     <h3>在线运行</h3>
                     <div class="code-block">
-                        <code aria-label="在线运行命令">bash &lt;(curl -sSL https://linuxset.com/linux-setbox-cn-1.0.0.sh)</code>
+                        <code aria-label="在线运行命令">bash &lt;(curl -sSL https://linuxset.com/linux-setbox-cn.sh)</code>
                         <button class="copy-btn" aria-label="复制命令">📋</button>
                     </div>
                     <p class="download-note">复制命令到终端执行，即可开始使用SetBox</p>
@@ -365,12 +370,12 @@
                 <article class="download-card">
                     <h3>手动下载</h3>
                     <div class="code-block">
-                        <code aria-label="下载命令">wget https://linuxset.com/linux-setbox-cn-1.0.0.sh</code>
+                        <code aria-label="下载命令">wget https://linuxset.com/linux-setbox-cn.sh</code>
                         <button class="copy-btn" aria-label="复制命令">📋</button>
                     </div>
                     <p class="download-note">下载后执行以下命令：</p>
                     <div class="code-block">
-                        <code aria-label="执行命令">chmod +x linux-setbox-cn-1.0.0.sh && ./linux-setbox-cn-1.0.0.sh</code>
+                        <code aria-label="执行命令">chmod +x linux-setbox-cn.sh && ./linux-setbox-cn.sh</code>
                         <button class="copy-btn" aria-label="复制命令">📋</button>
                     </div>
                 </article>
