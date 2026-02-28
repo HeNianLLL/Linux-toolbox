@@ -66,9 +66,7 @@ function initLanguage() {
                 'about.github': 'GitHub 仓库',
                 'footer.product': '产品',
                 'footer.community': '社区',
-                'footer.copyright': '© 2026 SetBox. 保留所有权利.',
-                'visitor.today': '今日访客',
-                'visitor.total': '累计访客'
+                'footer.copyright': '© 2026 SetBox. 保留所有权利.'
             },
             en: {
                 'nav.features': 'Features',
@@ -84,8 +82,6 @@ function initLanguage() {
                 'stats.systems': 'Supported Systems',
                 'stats.mirrors': 'Supported Package Versions',
                 'stats.success': 'Success Rate',
-                'visitor.today': 'Today\'s Visitors',
-                'visitor.total': 'Total Visitors',
                 'features.title': 'Powerful Features',
                 'features.desc': 'Professional tools for comprehensive Linux system support',
                 'feature.1.title': 'Software Source Management',
@@ -193,18 +189,18 @@ function initLanguage() {
         const codeBlocks = document.querySelectorAll('.code-block code');
         if (codeBlocks[0]) {
             codeBlocks[0].textContent = lang === 'zh' ? 
-                'bash <(curl -sSL https://linuxset.com/setbox-cn.sh)' : 
-                'bash <(curl -sSL https://linuxset.com/setbox-en.sh)';
+                'bash <(curl -sSL https://linuxset.com/linux-setbox-cn-1.0.0.sh)' : 
+                'bash <(curl -sSL https://linuxset.com/linux-setbox-en-1.0.0.sh)';
         }
         if (codeBlocks[1]) {
             codeBlocks[1].textContent = lang === 'zh' ? 
-                'wget https://linuxset.com/setbox-cn.sh' : 
-                'wget https://linuxset.com/setbox-en.sh';
+                'wget https://linuxset.com/linux-setbox-cn-1.0.0.sh' : 
+                'wget https://linuxset.com/linux-setbox-en-1.0.0.sh';
         }
         if (codeBlocks[2]) {
             codeBlocks[2].textContent = lang === 'zh' ? 
-                'chmod +x setbox-cn.sh && ./setbox-cn.sh' : 
-                'chmod +x setbox-en.sh && ./setbox-en.sh';
+                'chmod +x linux-setbox-cn-1.0.0.sh && ./linux-setbox-cn-1.0.0.sh' : 
+                'chmod +x linux-setbox-en-1.0.0.sh && ./linux-setbox-en-1.0.0.sh';
         }
 
         // Update terminal content
@@ -256,11 +252,6 @@ function initLanguage() {
 
         const footerCopyright = document.querySelector('.footer-bottom p');
         if (footerCopyright) footerCopyright.textContent = translations[lang]['footer.copyright'];
-
-        // Update visitor stats labels
-        const visitorLabels = document.querySelectorAll('.visitor-label');
-        if (visitorLabels[0]) visitorLabels[0].textContent = translations[lang]['visitor.today'];
-        if (visitorLabels[1]) visitorLabels[1].textContent = translations[lang]['visitor.total'];
     }
 }
 
@@ -323,47 +314,6 @@ function initScrollAnimations() {
     });
 }
 
-// Visitor Statistics - Static Version (localStorage only)
-function initVisitorStats() {
-    const todayVisitorsEl = document.getElementById('todayVisitors');
-    const totalVisitorsEl = document.getElementById('totalVisitors');
-    
-    if (!todayVisitorsEl || !totalVisitorsEl) return;
-    
-    // Get stored data
-    let visitorData = JSON.parse(localStorage.getItem('setboxVisitorData') || '{}');
-    const today = new Date().toDateString();
-    
-    // Initialize if first visit
-    if (!visitorData.firstVisit) {
-        visitorData = {
-            firstVisit: Date.now(),
-            totalCount: 0,
-            dailyCounts: {}
-        };
-    }
-    
-    // Update today's count
-    if (!visitorData.dailyCounts[today]) {
-        visitorData.dailyCounts[today] = 0;
-    }
-    
-    // Check if this is a new session (using sessionStorage)
-    if (!sessionStorage.getItem('setboxSession')) {
-        sessionStorage.setItem('setboxSession', '1');
-        visitorData.dailyCounts[today]++;
-        visitorData.totalCount++;
-        localStorage.setItem('setboxVisitorData', JSON.stringify(visitorData));
-    }
-    
-    // Display counts with animation
-    const todayCount = visitorData.dailyCounts[today] || 0;
-    const totalCount = visitorData.totalCount || 0;
-    
-    animateNumber(todayVisitorsEl, todayCount);
-    animateNumber(totalVisitorsEl, totalCount);
-}
-
 // Animate number counting
 function animateNumber(element, target) {
     const duration = 1000;
@@ -394,5 +344,4 @@ document.addEventListener('DOMContentLoaded', function() {
     initCopyButtons();
     initSmoothScrolling();
     initScrollAnimations();
-    initVisitorStats();
 });
