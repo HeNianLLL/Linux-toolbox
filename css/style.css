@@ -120,7 +120,7 @@ body::after {
     filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
 }
 
-.logo-text h1 {
+.logo-text span {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--light);
@@ -941,8 +941,10 @@ body::after {
     margin-bottom: 1rem;
 }
 
-.footer-brand .logo-text h1 {
+.footer-brand .logo-text {
     color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .footer-brand p {
@@ -1050,7 +1052,7 @@ body::after {
         display: none;
     }
     
-    .logo-text h1 {
+    .logo-text span {
         font-size: 0.9rem;
     }
     
@@ -1349,7 +1351,7 @@ body::after {
         font-size: 1.5rem;
     }
     
-    .logo-text h1 {
+    .logo-text span {
         font-size: 1.1rem;
     }
     
